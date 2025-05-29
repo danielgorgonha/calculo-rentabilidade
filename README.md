@@ -78,7 +78,7 @@ O script `src/main.py` realiza as seguintes operações:
 
 Um exemplo do relatório PDF gerado pode ser encontrado na pasta `temp/` após a execução do script. A aparência visual é definida pelo arquivo de template HTML (`src/templates/report_template.html`).
 
-![Exemplo de Saída em PDF](assets/report_example.png) <!-- Se tiver uma imagem do PDF gerado, pode colocá-la aqui -->
+![Exemplo do Relatório PDF](assets/result-pdf.png)
 
 ## 📝 Licença
 
