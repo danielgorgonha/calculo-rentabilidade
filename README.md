@@ -16,14 +16,19 @@ pip install pandas openpyxl
 
 ## Como Executar o Script
 
-1. Navegue até a pasta `aula1` no seu terminal:
+1. Clone o repositório para o seu ambiente local:
 
    ```bash
-   cd caminho/para/fundamentos-economia/aula1
+   git clone https://github.com/danielgorgonha/calculo-rentabilidade
    ```
-   *(Substitua `caminho/para/fundamentos-economia` pelo caminho correto no seu sistema, se necessário.)*
 
-2. Execute o script Python:
+2. Navegue até a pasta `calculo-rentabilidade` no terminal:
+
+   ```bash
+   cd calculo-rentabilidade
+   ```
+
+3. Execute o script Python:
 
    ```bash
    python main.py
@@ -46,3 +51,11 @@ O script `main.py` realiza as seguintes operações:
 Um exemplo da saída gerada pelo script pode ser encontrado na imagem:
 
 ![Exemplo de Saída](assets/result.png)
+
+## 📝 Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+---
+
+Feito com 💜 by <a href="https://www.linkedin.com/in/danielgorgonha/">Daniel R Gorgonha</a> :wave:
