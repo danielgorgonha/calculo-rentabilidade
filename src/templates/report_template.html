@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Relatório Financeiro</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; line-height: 1.6; color: #333; }
+        h1 { color: #003366; border-bottom: 2px solid #003366; padding-bottom: 10px; margin-bottom: 10px; }
+        h2 { color: #005a9e; margin-top: 10px; margin-bottom: 10px; font-size: 1.2em; }
+        h3 { color: #007acc; margin-top: 20px; margin-bottom: 10px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; border: 1px solid #ddd; }
+        th, td { border: 1px solid #ddd; text-align: left; padding: 12px; }
+        th { background-color: #f2f2f2; font-weight: bold; color: #333; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        strong { color: #003366; }
+        p { margin-bottom: 10px; }
+        .footer { margin-top: 40px; font-size: 0.9em; color: #777; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Relatório Financeiro</h1>
+    <h2>Análise Preditiva de Indicadores Econômicos</h2>
+    <p>Período analisado: <strong>{{ data_period_str }}</strong></p>
+
+    <h3>Resumo Geral</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Indicador</th>
+                <th>Valor Acumulado no Período</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Selic acumulada</td>
+                <td>{{ selic_acumulada }}%</td>
+            </tr>
+            <tr>
+                <td>Inflação acumulada</td>
+                <td>{{ inflacao_acumulada }}%</td>
+            </tr>
+            <tr>
+                <td>Ibovespa acumulado</td>
+                <td>{{ ibovespa_acumulado }}%</td>
+            </tr>
+            <tr>
+                <td>Rentabilidade da Selic real</td>
+                <td>{{ selic_real }}%</td>
+            </tr>
+            <tr>
+                <td>Rentabilidade do Ibovespa real</td>
+                <td>{{ ibovespa_real }}%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Resumo das Rentabilidades Reais</h3>
+    <table>
+        <tr>
+            <th>Indicador</th>
+            <th>Rentabilidade Acumulada</th>
+            <th>Rentabilidade Real</th>
+        </tr>
+        <tr>
+            <td>SELIC</td>
+            <td>{{ selic_acumulada }}%</td>
+            <td>{{ selic_real }}%</td>
+        </tr>
+        <tr>
+            <td>Ibovespa</td>
+            <td>{{ ibovespa_acumulado }}%</td>
+            <td>{{ ibovespa_real }}%</td>
+        </tr>
+        <tr>
+            <td>Inflação</td>
+            <td>{{ inflacao_acumulada }}%</td>
+            <td>-</td> {# Inflacao real usually isn't calculated this way #}
+        </tr>
+    </table>
+
+    <h3>Projeção para os Próximos 6 Meses</h3>
+    <table>
+        <tr>
+            <th>Indicador</th>
+            <th>Rentabilidade Projetada</th>
+        </tr>
+        <tr>
+            <td>SELIC</td>
+            <td>{{ selic_projetada }}%</td>
+        </tr>
+        <tr>
+            <td>Ibovespa</td>
+            <td>{{ ibovespa_projetada }}%</td>
+        </tr>
+    </table>
+
+    {# Aqui adicionaremos a tabela de rentabilidade mensal #}
+    <h3>Rentabilidade Mensal Detalhada</h3>
+    {# O conteúdo desta tabela será preenchido dinamicamente pelo script Python #}
+    <table id="monthly-table">
+        <thead>
+            <tr>
+                <th>Período</th>
+                <th>Selic Acumulada Mensal</th>
+                <th>Inflação Acumulada Mensal</th>
+                <th>Ibovespa Acumulado Mensal</th>
+                <th>Selic Real Mensal</th>
+                <th>Ibovespa Real Mensal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Loop através dos dados mensais passados pelo script #}
+            {% for row in monthly_data %}
+            <tr>
+                <td>{{ row.período }}</td>
+                <td>{{ row.selic_acumulado_mensal }}</td>
+                <td>{{ row.inflacao_acumulada_mensal }}</td>
+                <td>{{ row.ibovespa_acumulado_mensal }}</td>
+                <td>{{ row.selic_real_mensal }}</td>
+                <td>{{ row.ibovespa_real_mensal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Considerações</h3>
+    <p>{{ consideracoes }}</p>
+
+    <div class="footer">
+        Relatório gerado em: {{ report_generation_date }}
+    </div>
+
+</body>
+</html> 
